@@ -2,6 +2,8 @@
 
 
 //Setup
+//Here I create constatn which helds value of true. This constant I will use in develeopment mode so it can disable browser chaching
+define('JU_DEV_MODE',true);
 
 //Includes
 //Function for include the file. Here I include the enqueue file from front folder. In that folder I create function for enqueue scripts which I call down bellow
