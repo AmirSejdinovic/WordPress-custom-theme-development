@@ -11,6 +11,8 @@ define('JU_DEV_MODE',true);
 include(get_theme_file_path('/includes/front/enqueue.php'));
 //Including setup.ph
 include(get_theme_file_path('/includes/setup.php'));
+//Include wallker class
+include(get_theme_file_path('/includes/custom-nav-walker.php'));
 
 //Hooks
 //This is the wp hoock for including style and scripts in wp. First parametar is the where we will input the code, second parametar is the name of function which will be creadted and which will has the code for input

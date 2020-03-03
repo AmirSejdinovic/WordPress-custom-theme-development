@@ -121,7 +121,9 @@
                   //This will display default menu when users are not defined the menu inside wp
                   'falback_cb'     => false,
                   //This key will tell wp how many wp submenus should have
-                  'depth'          => 4
+                  'depth'          => 4,
+                  //Walker key word adding the new class we create new instace of the our custom class
+                  'walker'         => new JU_Custon_Nav_Walker()
 
                 ]);
               }
