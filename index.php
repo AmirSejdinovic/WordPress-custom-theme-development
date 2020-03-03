@@ -109,102 +109,24 @@
 
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-            <!-- ul Main Menu
-            ======================================== -->
-            <ul>
-              <li><a href="#">
-                  <div>Menu Item 1</div>
-                </a>
-                <ul>
-                  <li>
-                    <a href="#">
-                      <div>Submenu Item 1</div>
-                    </a>
-                    <ul>
-                      <li><a href="#">
-                          <div>Submenu Item 1</div>
-                        </a></li>
-                      <li><a href="#">
-                          <div>Submenu Item 2</div>
-                        </a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">
-                      <div>Submenu Item 2</div>
-                    </a></li>
-                </ul>
-              </li>
-              <li><a href="#">
-                  <div>Menu Item 2</div>
-                </a>
-                <ul>
-                  <li><a href="#">
-                      <div>Submenu Item 1</div>
-                    </a>
-                    <ul>
-                      <li><a href="#">
-                          <div>Submenu Item 1</div>
-                        </a></li>
-                      <li><a href="#">
-                          <div>Submenu Item 2</div>
-                        </a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">
-                      <div>Submenu Item 2</div>
-                    </a></li>
-                </ul>
-              </li>
-              <li><a href="#">
-                  <div>Menu Item 3</div>
-                </a>
-                <ul>
-                  <li><a href="#">
-                      <div>Submenu Item 1</div>
-                    </a>
-                    <ul>
-                      <li><a href="#">
-                          <div>Submenu Item 1</div>
-                        </a>
-                        <ul>
-                          <li><a href="#">
-                              <div>Submenu Item 1</div>
-                            </a></li>
-                          <li><a href="#">
-                              <div>Submenu Item 2</div>
-                            </a></li>
-                          <li><a href="#">
-                              <div>Submenu Item 3</div>
-                            </a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">
-                          <div>Submenu Item 2</div>
-                        </a></li>
-                      <li><a href="#">
-                          <div>Submenu Item 3</div>
-                        </a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">
-                      <div>Submenu Item 2</div>
-                    </a>
-                    <ul>
-                      <li><a href="#">
-                          <div>Submenu Item 1</div>
-                        </a></li>
-                      <li><a href="#">
-                          <div>Submenu Item 2</div>
-                        </a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">
-                      <div>Submenu Item 3</div>
-                    </a></li>
-                </ul>
-              </li>
-              <li><a href="#">Menu Item 4</a></li>
-            </ul><!-- ul Main Menu end -->
+            <?php
+            //Creating condition if the menu with the name of pirmary is exist than do the code inside code block
+              if(has_nav_menu('primary')){
+                //Caling the worpdress function for displaying menu on fornt end. This function will generate the menu whic is registered as primary
+                //To customize this we crete array as parametar and give it the parametars to costimize
+                wp_nav_menu([
+                  'theme_location' => 'primary',
+                  //This is tag around html
+                  'container'      => false,
+                  //This will display default menu when users are not defined the menu inside wp
+                  'falback_cb'     => false,
+                  //This key will tell wp how many wp submenus should have
+                  'depth'          => 4
+
+                ]);
+              }
+            
+            ?>
 
             <!-- Top Cart
             ============================================= -->
