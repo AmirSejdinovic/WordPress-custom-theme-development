@@ -13,6 +13,8 @@ include(get_theme_file_path('/includes/front/enqueue.php'));
 include(get_theme_file_path('/includes/setup.php'));
 //Include wallker class
 include(get_theme_file_path('/includes/custom-nav-walker.php'));
+//Include the widgets function
+include(get_theme_file_path('/includes/widgets.php'));
 
 //Hooks
 //This is the wp hoock for including style and scripts in wp. First parametar is the where we will input the code, second parametar is the name of function which will be creadted and which will has the code for input
@@ -22,6 +24,8 @@ add_action('wp_enqueue_scripts', 'ju_enqueue');
 //Adding hook for register menu. We add the after_setup_theme hook which will tirger this hoock when all the files of the functions.php inisde theme folder are loaded after that it will run this code
 //ju_setup_theme is function which I created in includes folder inside seutp.php file
 add_action('after_setup_theme','ju_setup_theme');
+//Adding the hoock for register widgets
+add_action('widgets_init', 'ju_widgets');
 
 
 
