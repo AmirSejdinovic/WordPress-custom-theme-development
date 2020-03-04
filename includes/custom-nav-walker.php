@@ -1,7 +1,7 @@
 <?php
 //Creating cutom class which extends the Walker_nav_menu 
 
-class JU_Custon_Nav_Walker extends Walker_Nav_Menu{
+/*class JU_Custon_Nav_Walker extends Walker_Nav_Menu{
   //Updating public function 
   public function start_lvl( &$output, $depth = 0, $args = [] ){
      //Apending the ul with class on html outpup
@@ -29,4 +29,4 @@ class JU_Custon_Nav_Walker extends Walker_Nav_Menu{
     $output    .= '</ul>';
   }
    
-}
+}*/
