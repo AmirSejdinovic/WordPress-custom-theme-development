@@ -144,47 +144,68 @@
 
             <div class="related-posts clearfix">
 
-              <div class="mpost clearfix">
-                <div class="entry-image">
-                  <a href="#">
-                    <img src="images/blog/small/10.jpg">
+            <?php
+            //Creating the varaible which helds categori of the current post. I do this via wp function get_the_category()
+            $categories = get_the_category();
+           
+               //Creating the variable and as return value calling new instance of WP_Query() class
+               $rp_query = new WP_Query([
+                 //This controls how many post will the wp query return
+                 'posts_per_page' => 2,
+                 //This key is to not display the post in the loop
+                 //$post is WP global vriable which helds the data about curent post in the loop. With this global WP varialbe we can extract the current post ID and asigned it to this key so this current post is not in the loop. This $post varable is always avaiable in the loop
+                 'post__not_in' => [ $post->ID ],
+                 'cat'          =>  !empty($categories) ? $categories[0]->term_id : null,
+               ]);
+
+               if($rp_query->have_posts()){
+                  while($rp_query->have_posts()){
+                    $rp_query->the_post(); ?>
+
+<div class="mpost clearfix">
+<?php
+  if(has_post_thumbnail()){
+
+    ?>
+
+<div class="entry-image">
+      <a href="<?php the_permalink(); ?>">
+                  
+  <?php the_post_thumbnail('thumbnail') ?>
                   </a>
-                </div>
+      </div>
+    <?php
+
+  }
+?>
+                
                 <div class="entry-c">
                   <div class="entry-title">
                     <h4>
-                      <a href="#">
-                        This is an Image Post
+                      <a href="<?php the_permalink(); ?>">
+                       <?php the_title(); ?>
                       </a>
                     </h4>
                   </div>
                   <ul class="entry-meta clearfix">
-                    <li><i class="icon-calendar3"></i> 10th July 2014</li>
-                    <li><i class="icon-comments"></i> 12</li>
+                    <li><i class="icon-calendar3"></i> <?php echo get_the_date(); ?></li>
+                    <li><i class="icon-comments"></i> <?php comments_number('0'); ?></li>
                   </ul>
                   <div class="entry-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Mollitia nisi perferendis.
+                    <?php the_excerpt(); ?>
                   </div>
                 </div>
               </div>
 
-              <div class="mpost clearfix">
-                <div class="entry-image">
-                  <a href="#"><img src="images/blog/small/20.jpg" alt="Blog Single"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="#">This is a Video Post</a></h4>
-                  </div>
-                  <ul class="entry-meta clearfix">
-                    <li><i class="icon-calendar3"></i> 24th July 2014</li>
-                    <li><i class="icon-comments"></i> 16</li>
-                  </ul>
-                  <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Mollitia nisi perferendis.</div>
-                </div>
-              </div>
+              <?php
+                  }
+                  //Reset post data
+                  wp_reset_postdata();
+               }
+            ?>
+
+             
+            
 
             </div>
 
