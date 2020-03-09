@@ -10,9 +10,7 @@
   <?php wp_head(); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Document Title
-	============================================= -->
-  <title>Index Template</title>
+ 
 
 </head>
 
@@ -32,11 +30,19 @@
           <!-- Top Links
           ============================================= -->
           <div class="top-links">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+            <?php
+              if(has_nav_menu('top')){
+                wp_nav_menu(
+                  [
+                    'theme_location'   => 'top',
+                    'container'        => false,
+                    'fallback_cb'      => false,
+                    'depth'            => 1
+                  ]
+                  );
+              }
+ 
+              ?>
           </div><!-- .top-links end -->
 
         </div>
@@ -90,11 +96,30 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-          <a href="#" class="standard-logo">Udemy</a>
+        <?php
+         //Here I check if the user is upload the logo from admin panel. If the user is upload the logo this function will return the true and the code below will be execute
+        if(has_custom_logo()){
+          //This custom wp function will otuput the logo which user is upload from admin panel and will anchor it with the link from home page
+             the_custom_logo();
+        }else{
+          //This is the bacukp if the user is not uplad the logo. Here I serve the static template for logo ?>
+
+
+          <a href="<?php echo home_url('/'); ?>" class="standard-logo"><?php bloginfo('name'); ?></a>
+          
+          <?php
+        }
+        
+        ?>
+       
         </div><!-- #logo end -->
 
         <div class="top-advert">
-          <img src="images/magazine/ad.jpg">
+         <?php
+           if(function_exists( 'quads_ad')){
+              echo quads_ad(['location' => 'ju_header']);
+           }
+         ?>
         </div>
 
       </div>
