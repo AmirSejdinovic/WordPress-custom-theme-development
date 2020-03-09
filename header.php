@@ -53,31 +53,70 @@
           ============================================= -->
           <div id="top-social">
             <ul>
-              <li>
-                <a href="#" class="si-facebook">
+            <?php
+            //Checkig if there is input in the custimizer. If there is a value in the this setiign the do the code below
+              if(get_theme_mod( 'ju_facebook_handle' )){
+                ?>
+                 <li>
+                <a href="https://facebook.com/<?php echo get_theme_mod( 'ju_facebook_handle'); ?>" class="si-facebook">
                   <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
                 </a>
               </li>
-              <li>
-                <a href="#" class="si-twitter">
+                <?php
+              }
+
+               ?>
+               <?php
+               if(get_theme_mod('ju_twitter_handle')){
+                 ?>
+                   <li>
+                <a href="https://twiter.com/<?php echo get_theme_mod('ju_twitter_handle'); ?>" class="si-twitter">
                   <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
                 </a>
               </li>
-              <li>
-                <a href="#" class="si-instagram">
+                 <?php
+               }
+               ?>
+              
+              <?php
+              if(get_theme_mod('ju_instagram_handle')){
+                ?>
+                  <li>
+                <a href="https://instagram.com/<?php echo get_theme_mod('ju_instagram_handle'); ?>" class="si-instagram">
                   <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
                 </a>
               </li>
-              <li>
-                <a href="tel:+55.55.5555555" class="si-call">
-                  <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+55.55.5555555</span>
+                <?php
+              }
+              
+              ?>
+
+              <?php 
+              if(get_theme_mod('ju_phone_handle')){
+                ?>
+                <li>
+                <a href="<?php echo get_theme_mod('ju_phone_handle'); ?>" class="si-call">
+                  <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo get_theme_mod('ju_phone_handle'); ?></span>
                 </a>
               </li>
-              <li>
-                <a href="mailto:info@email.com" class="si-email3">
-                  <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span>
+                <?php
+              }
+              ?>
+              
+              <?php
+              
+              if(get_theme_mod('ju_email_handle')){
+                ?>
+                     <li>
+                <a href="mailto:<?php echo get_theme_mod('ju_email_handle'); ?>" class="si-email3">
+                  <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod('ju_email_handle'); ?></span>
                 </a>
               </li>
+                <?php
+              }
+              ?>
+              
+             
             </ul>
           </div><!-- #top-social end -->
 
