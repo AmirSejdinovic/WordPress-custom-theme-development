@@ -21,6 +21,8 @@ include(get_theme_file_path('/includes/theme-customizer.php'));
 include(get_theme_file_path('/includes/customizer/social.php'));
 //Including misc file
 include(get_theme_file_path('/includes/customizer/misc.php'));
+//Include the custom js for customizer
+include(get_theme_file_path('/includes/customizer/enqueue.php'));
 
 //Hooks
 //This is the wp hoock for including style and scripts in wp. First parametar is the where we will input the code, second parametar is the name of function which will be creadted and which will has the code for input
@@ -36,6 +38,7 @@ add_action('widgets_init', 'ju_widgets');
 //The customize_register hook is the hook which wp calls when we open the wp cutomizer
 //ju_customize_register is the function which I create and in it I put the code for cutomize register
 add_action('customize_register', 'ju_customize_register');
+add_action('customize_preview_init','ju_customize_preview_init');
 
 
 

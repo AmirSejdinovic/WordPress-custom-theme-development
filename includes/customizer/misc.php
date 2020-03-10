@@ -5,10 +5,12 @@ function ju_misc_customizer_section( $wp_customize ){
    //Database settings
   $wp_customize->add_setting('ju_header_show_search', [
     'default' => 'yes',
+    'transport' => 'postMessage'
   ]);
 
   $wp_customize->add_setting('ju_header_show_cart', [
     'default' => 'yes',
+    'transport' => 'postMessage'
   ]);
 
   $wp_customize->add_setting('ju_footer_copyright_text', [
@@ -27,6 +29,7 @@ function ju_misc_customizer_section( $wp_customize ){
   $wp_customize->add_section('ju_misc_section', [
     'title'  => __('Misc Settings', 'foreach'),
     'priority' => 30,
+    'panel'    => 'foreach'
   ]);
 
   //Creating the controlors for each setting

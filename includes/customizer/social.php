@@ -29,7 +29,9 @@ function ju_social_customizer_section( $wp_customize ){
   //Caling the method add_section this method will add new section in the customizer
   $wp_customize->add_section( 'ju_social_section', [
     'title'  => __('Social settings', 'foreach'),
-    'priority'=> 30
+    'priority'=> 30,
+    //Ading the panel to section this where we add the id of panel
+    'panel'  => 'foreach'
   ]);
   //Calling the add_control() method. This method will create the input field in the section which we created above
   $wp_customize->add_control( 
