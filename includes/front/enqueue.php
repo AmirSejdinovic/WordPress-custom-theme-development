@@ -27,6 +27,12 @@ function ju_enqueue(){
   wp_enqueue_style('ju_responsive');
   wp_enqueue_style('ju_custom');
 
+  $read_more_color = get_theme_mod('ju_read_more_color');
+
+  wp_add_inline_style(
+    'ju_custom', 
+    'a.more-link{color:' .$read_more_color . '; border-color: ' . $read_more_color .'; }');
+
   //Registering the js scripts with wp_register_script
   //The last parametar of this functions enables that the script is loaded in footer
   wp_register_script('ju_plugins', $uri.'/assets/js/plugins.js',[],$ver,true);
@@ -36,6 +42,8 @@ function ju_enqueue(){
   wp_enqueue_script('jquery');
   wp_enqueue_script('ju_plugins');
   wp_enqueue_script('ju_function');
+
+
   
 
 }
