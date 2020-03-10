@@ -193,10 +193,10 @@
               }
             
             ?>
-
-            <!-- Top Cart
-            ============================================= -->
-            <div id="top-cart">
+            <?php
+             if(get_theme_mod('ju_header_show_cart')){
+               ?>
+                <div id="top-cart">
               <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
               <div class="top-cart-content">
                 <div class="top-cart-title">
@@ -233,16 +233,33 @@
               </div>
             </div><!-- #top-cart end -->
 
-            <!-- Top Search
+               <?php
+             }
+        
+             ?>
+
+            <!-- Top Cart
             ============================================= -->
-            <div id="top-search">
+           <?php 
+           if(get_theme_mod('ju_header_show_search')){
+             ?>
+
+<div id="top-search">
               <a href="#" id="top-search-trigger">
                 <i class="icon-search3"></i><i class="icon-line-cross"></i>
               </a>
-              <form action="#" method="get">
-                <input type="text" name="q" class="form-control" placeholder="Type &amp; Hit Enter.." value="">
+              <form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+                <input type="text" name="s" class="form-control" placeholder="<?php _e( 'Search', 'udemy' ); ?>" value="<?php the_search_query(); ?>">
               </form>
             </div><!-- #top-search end -->
+
+             <?php
+           }
+           ?>
+
+            <!-- Top Search
+            ============================================= -->
+            
 
           </div>
 

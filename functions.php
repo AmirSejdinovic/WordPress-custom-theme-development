@@ -19,6 +19,8 @@ include(get_theme_file_path('/includes/widgets.php'));
 include(get_theme_file_path('/includes/theme-customizer.php'));
 //Include the social customizer from social.php
 include(get_theme_file_path('/includes/customizer/social.php'));
+//Including misc file
+include(get_theme_file_path('/includes/customizer/misc.php'));
 
 //Hooks
 //This is the wp hoock for including style and scripts in wp. First parametar is the where we will input the code, second parametar is the name of function which will be creadted and which will has the code for input
