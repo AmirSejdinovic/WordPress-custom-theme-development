@@ -7,7 +7,7 @@
            if(new_val){
              $("#top-search").show();
            }else{
-             $('#top-search').hidde();
+             $('#top-search').hide();
            }
        });
     });
@@ -18,7 +18,7 @@
           if(new_val){
             $("#top-cart").show();
           }else{
-            $('#top-cart').hidde();
+            $('#top-cart').hide();
           }
       });
    })
