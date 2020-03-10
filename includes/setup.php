@@ -9,6 +9,42 @@ function ju_setup_theme(){
   add_theme_support('title-tag');
   //Custom wp fuction for log. This function will enable users to upload their own logos
   add_theme_support('custom-logo');
+  //Adding the html5 support for theme
+  add_theme_support('html5', array('comment-list', 'search-form', 'gallery', 'caption'));
+  add_theme_support('starter-content', [
+      'widgets'   => [
+        'ju_sidebar'  => [
+          'text_bussiness_info', 'search', 'text_about',
+        ]
+
+      ],
+      'attachments'  => [
+        'image-about'  =>[
+          'post_title'  => __('About', 'foreach'),
+          'file'  => 'assets/images/about/1.jpg',
+        ]
+
+      ],
+      'posts'    => [
+        'home'  => [
+          'thumbnail' => '{{image-about}}'
+        ]
+      ],
+      'options'  =>[
+        'show_on_front'  => 'page',
+        'page_on_front'  => '{{home}}',
+        'page_for_posts' =>'{{blog}}',
+
+      ],
+      'theme_mods'  =>[
+
+      ],
+      'nav_menus'  =>[
+
+      ],
+  ]);
+  //Theme support for automatic rss feeds
+  add_theme_support('automatic-feed-links');
   register_nav_menu('primary', __('Primary Menu','foreach'));
   //Registering the top menu
   register_nav_menu('top', __('Top menu', 'foreach'));
